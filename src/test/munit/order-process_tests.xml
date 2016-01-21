@@ -27,7 +27,7 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 			<munit:assert-on-equals expectedValue="#['international']" actualValue="#[message.payload.'location']" doc:name="Assert Equals" />
 		</foreach>
 	</munit:test>
-	<munit:test name="processOrders_domesticKeyReturnsDomesticOrders" description="">
+	<munit:test name="processOrders_domesticKeyReturnsDomesticOrders" description="The value of the map key international contains only domestic orders">
 		<flow-ref name="processOrders" doc:name="Flow Reference"/>
 		<munit:assert-true condition="#[message.payload.'domestic'.size() > 0]" doc:name="Assert True"/>
 		<foreach collection="#[payload.'domestic']" doc:name="For Each">
